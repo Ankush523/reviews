@@ -4,22 +4,43 @@ const Review = () => {
     const[index,setIndex] = useState(0)
     const{id,name,job,image,text} = people[index]
 
+    const checkIndex = (number) => {
+        if(number<0)
+        {
+            return people.length-1
+        }
+
+        else if(number>people.length-1)
+        {
+            return 0
+        }
+        else
+        {
+            return number
+        }
+    }
+
     const prevPerson = () => {
         setIndex((index) => {
             let newIndex = index-1;
-            return newIndex;
+            return checkIndex(newIndex);
         })
     }
 
     const nextPerson = () => {
         setIndex((index) => {
             let newIndex = index+1;
-            return newIndex;
+            return checkIndex(newIndex);
         })
     }
 
     const randomPerson = () => {
-
+        let randomNumber = Math.floor(Math.random * people.length)
+        if(randomNumber === index)
+        {
+            randomNumber = index+1;
+        }
+        setIndex(checkIndex(randomNumber))
     }
   return (
     <div>
