@@ -43,9 +43,9 @@ const Review = () => {
         setIndex(checkIndex(randomNumber))
     }
   return (
-    <div>
-        <div>
-            <img src={image} alt={name}/>
+    <div className=''>
+        <div className='flex flex-col justify-center items-center shadow-xl rounded-xl bg-slate-100 p-10'>
+            <img src={image} alt={name} className="w-[200px] h-[200px] rounded-full"/>
             <h2>{name}</h2>
             <h3>{job}</h3>
             <h3>{text}</h3>
